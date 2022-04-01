@@ -1,0 +1,123 @@
+2차원 배열
+->테이블 형태의 데이터를 저장하기 위한 배열
+3차원 배열
+-> 2차원 배열이 여러개 모인 것
+
+int[][] score = new int [4][3] // 4행 3열의 2차원 배열 생성
+
+
+
+
+2차원 배열의 인덱스
+
+score[0][0] = 100; // 배열 score의 1행 1열에 100을 저장
+System.out.println(score[0][0]); // 배열 score의 1행 1열의 값을 출력
+
+
+
+
+2차원 배열의 초기화
+
+int[][] arr = { {1, 2, 3}, {4, 5 ,6} }; // new int[][] 생략
+
+
+
+
+2차원 배열 예제 - eclipse
+
+
+
+
+Arrays클래스로 배열 다루기
+
+배열의 출력 - toString()
+
+int[] arr = {0,1,2,3,4};
+int[][] arr2D = { 
+	{11, 12},
+	{21, 22} };
+
+System.out.println(Arrays.toString(arr)); // [0, 1, 2, 3, 4]
+System.out.println(Arrays.deepToString(arr2D)); // [[11, 12], [21, 22]] (2차원 이상일 때 deep을 사용)
+
+배열의 비교 - equals()
+
+String[][] str2D = new String[][] {{"aaa", "bbb"}, {"AAA", "BBB"}};
+String[][] str2D2 = new String[][] {{"aaa", "bbb"}, {"AAA", "BBB"}};
+
+System.out.println(Arrays.equals(str2D, str2D2)); // false
+System.out.println(Arrays.deepEquals(str2D, str2D2)); // true (2차원 이상일 때 deep을 사용)
+
+배열의 복사 - copyOf(복사할 요소, 복사할 요소의 갯수), copyOfRange(복사할 요소, from, to)
+
+int[] arr = {0, 1, 2, 3, 4};
+int[] arr2 = Arrays.copOf(arr, arr.length); // arr2 = [0, 1, 2, 3, 4]
+int[] arr3 = Arrays.copyOf(arr, 3); // arr3 = [0, 1, 2]
+int[] arr4 = Arrays.copyOf(arr, 7); // arr4 = [0, 1, 2, 3, 4, 0, 0] (index의 범위를 벗어나면 0으로 출력됨)
+int[] arr5 = Arrays.copyOfRange(arr, 2, 4); // arr5 = [2, 3] (4는 포함되지않음)
+int[] arr6 = Arrays.copyOfRange(arr, 0, 7); // arr6 = [0, 1, 2, 3, 4 ,0, 0] (index의 범위를 벗어나면 0으로 출력됨)
+
+배열의 정렬 - sort()
+
+int[] arr = { 3, 2, 0 ,1 ,4 };
+Arrays.sort(arr); //배열 arr을 정렬함
+System.out.println(Arrays.toString(arr)); // [0, 1, 2, 3, 4]
+
+
+
+
+객체지향 언어 = 프로그래밍 언어 + 객체지향개념(규칙)
+: 기존의 프로그래밍 언어에 몇 가지 새로운 규칙을 추가한 것
+
+oop(object orianted programing)
+1. 캡슐화 2. 상속 3. 추상화 4. 다형성(핵심)
+
+특징 : 
+1. 코드의 재사용성이 높음 (유지보수가 용이, 중복 코드 제거)
+2. 코드의 관리가 용이함
+3. 신뢰성이 높은 프로그래밍을 가능하게 함
+
+
+
+
+
+클래스와 객체
+
+클래스란? 객체를 정의해 놓은 것
+용도 = 객체를 생성하는데 사용
+
+객체 : 실제로 존재하는 것 (사물 or 개념)
+용도 = 객체가 가지고 있는 기능과 속성에 따라 다름
+
+클래스가 설계도고 객체가 만들어진 결과물
+
+
+
+객체의 구성요소 - 속성과 기능
+
+속성(property) -> 멤버변수(variable)
+기능(function) -> 메서드(method)
+
+
+객체와 인스턴스
+
+객체 : 모든 인스턴스를 대표하는 일반적 용어
+인스턴스 : 특정 클래스로부터 생성된 객체( ex) Tv인스턴스 )
+
+
+
+
+
+한파일 여러 클래스 작성하기
+
+올바른 작성 예시
+public class가 있을 때 - 소스파일의 이름은 반드시 public class의 이름과 일치해야함
+public class가 없을 때 - 소스파일의 이름은 둘 다 가능
+
+잘못된 작성 예시
+1. public class는 무조건 하나이어야만 함
+2. 소스파일의 이름과 public class의 이름이 불일치함
+3. 대소문자가 일치하지 않음
+
+
+
