@@ -1,0 +1,413 @@
+1. JUnit?´ë??
+- ´ÜÀ§ Å×½ºÆ® ÇÁ·¹ÀÓ¿÷
+- JUnit5´Â 2017³â10¿ù °ø°³
+- ½ºÇÁ¸µ ºÎÆ® 2.2¹öÀü ÀÌ»óºÎÅÍ ±âº» Á¦°ø
+
+
+
+
+
+2. JUnit5?€?
+- Platform : Å×½ºÆ®¸¦ ½ÇÇàÇØÁÖ´Â ·±Ã³ Á¦°ø. TestEngine API Á¦°ø. ide°¡ Áö¿ø.
+- Jupiter : JUnit 5¸¦ Áö¿øÇÏ´Â TestEngine API ±¸ÇöÃ¼
+- Vintage : JUnit 4¿Í€ 3¸¦ Áö¿øÇÏ´Â TestEngine ±¸ÇöÃ¼
+
+JUnit 3, 4 = Vintage
+JUnit 5 = Jupiter
+
+
+
+
+
+3. JUnit5 ½ÃÀÛÇÏ±â
+- ½ºÇÁ¸µ ºÎÆ® ÇÁ·ÎÁ§Æ®
+	½ºÇÁ¸µ ºÎÆ® 2.2¹öÀü ÀÌ»óºÎÅÍ´Â ±âº»ÀûÀ¸·Î JUnit5 ÀÇÁ¸¼ºÀÌ Ãß°¡µÈ´Ù.
+
+ÇÁ·ÎÁ§Æ® »ı¼º
+1. ¿ŞÂÊ »ó´Ü File -> new -> other Å¬¸¯
+2. Maven project Å¬¸¯
+3. Create a simple project (skip archetype selection) Ã¼Å© ÈÄ Next
+4. Group Id, Artifact Id ÀÛ¼º ÈÄ Finish
+5. »ı¼ºÇÑ Æú´õ ¿¡¼­ ¿ìÅ¬¸¯  new -> JUnit Test Case Å¬¸¯
+6. New JUnit Jupiter test Å¬¸¯ -> ÀÌ¸§ ÀÛ¼º -> finish Å¬¸¯
+7. »ı¼º ÈÄ import ¹® Ãß°¡
+
+*½ºÇÁ¸µ ºÎÆ® ÇÁ·ÎÁ§Æ®°¡ ¾Æ´Ò°æ¿ì ¾Æ·¡ÀÇ ÀÇÁ¸¼ºÀ» Ãß°¡ÇØÁÖ¸é µÈ´Ù.
+
+»ı¼ºÇÑ ÆĞÅ°Áö Æú´õ ¾È¿¡ ÀÖ´Â pom.xml ÆÄÀÏÀ» ¿¬ ÈÄ <project>...</project> ¾È¿¡ ÀÇÁ¸¼º Ãß°¡
+// ÀÇÁ¸¼º Ãß°¡
+ <dependencies>
+  	<dependency>
+  		<groupId>org.junit.jupiter</groupId>
+  		<artifactId>junit-jupiter-engine</artifactId>
+  		<version>5.5.2</version>
+  		<scope>test</scope>
+  	</dependency>
+  </dependencies>
+
+
+
+
+
+
+4. Eclipse¿¡¼­ JUnit ½ÃÀÛÇÏ±â
+	1. ÇÁ·ÎÁ§Æ®¸¦ ¼±ÅÃÇÏ°í ¿ìÅ¬¸¯ ÈÄ Properties¸¦ ¼±ÅÃ
+	2. Java Build Path¸¦ ¼±ÅÃÇÏ°í Libraries ÅÇ¿¡¼­ Add LibraryÀ» ¼±ÅÃ
+	3. JUnitÀ» ¼±ÅÃÇÏ°í, Next¸¦ Å¬¸¯
+	4. JUnitÀÇ ¹öÀü ¼±ÅÃ ÈÄ Finish ¹öÆ°À» Å¬¸¯
+	5. Properties Ã¢¿¡ JUnit ¶óÀÌºê·¯¸®°¡ Ãß°¡µÈ °ÍÀ» È®ÀÎ
+	6. Eclipse¿¡ JUnitÀÌ ¼³Á¤¿Ï·á
+
+* no tests found with test runner junit 5 ¿¡·¯ ¹ß»ı
+
+- Run Configurations -> JUnit -> Test -> Project¿Í Test class °æ·Î¸¦ ÇöÀç À§Ä¡·Î ¼öÁ¤
+
+
+
+
+
+https://blog.1028web.com/160
+5. Annotations - »ı¸íÁÖ±â(LifeCycle) ¾î³ëÅ×ÀÌ¼Ç
+@Test
+	Test ¸Ş¼­µå¸¦ ³ªÅ¸³»´Â ¾î³ëÅ×ÀÌ¼Ç(Annotation). 
+	JUnit4¿Í ´Ù¸£°Ô ¾î¶°ÇÑ ¼Ó¼ºµµ ¼±¾ğÇÏÁö ¾ÊÀ½.
+@BeforeAll
+	¹İµå½Ã static void method·Î Á¤ÀÇÇØ¾ßÇÔ.
+	Å×½ºÆ®Å¬·¡½º°¡ ½ÇÇàµÇ±âÀü ÇÑ¹ø¸¸ ½ÇÇàµÊ.
+@AfterAll
+	¹İµå½Ã static void method·Î Á¤ÀÇÇØ¾ßÇÔ.
+	Å×½ºÆ®¸Ş¼­µå°¡ ¸ğµÎ Á¾·áµÈ ÈÄ ½ÇÇàµÊ.
+@BeforeEach
+	Å×½ºÆ® ¸Ş¼­µå°¡ ½ÇÇàµÇ±âÀü ½ÇÇàµÊ.
+@AfterEach
+	Å×½ºÆ® ¸Ş¼­µå°¡ ½ÇÇàµÈÈÄ ½ÇÇàµÊ.
+@Disabled
+	ÇØ´ç Å×½ºÆ® ¸Ş¼­µå´Â ¹«½ÃÇÑ´Ù. ÁÖ¼®Ã³¸® ¾øÀÌ ¹®Á¦ ÇØ°á °¡´É.
+	Å×½ºÆ®¸¦ ÇÏ°í½ÍÁö ¾ÊÀº Å¬·¡½º³ª ¸Ş¼­µå¿¡ ºÙÀÌ´Â ¾î³ëÅ×ÀÌ¼Ç.
+@DisplayName
+	ÇØ´ç Å×½ºÆ® ¸Ş¼­µåÀÇ DisplayNameÀ» Á¤ÀÇ
+	¾î¶² Å×½ºÆ®ÀÎÁö ½±°Ô Ç¥ÇöÇÒ ¼ö ÀÖµµ·Ï ÇØÁÖ´Â ¾î³ëÅ×ÀÌ¼Ç.
+	°ø¹é, Emoji, Æ¯¼ö¹®ÀÚ µîÀ» ¸ğµÎ Áö¿ø.
+@RepeatedTest
+	Æ¯Á¤ Å×½ºÆ®¸¦ ¹İº¹½ÃÅ°°í ½ÍÀ» ¶§ »ç¿ëÇÏ´Â ¾î³ëÅ×ÀÌ¼Ç.
+	¹İº¹ È½¼ö¿Í ¹İº¹ Å×½ºÆ® ÀÌ¸§À» ¼³Á¤ °¡´É.
+@ParameterizedTest
+	Å×½ºÆ®¿¡ ¿©·¯ ´Ù¸¥ ¸Å°³º¯¼ö¸¦ ´ëÀÔÇØ°¡¸ç ¹İº¹ ½ÇÇàÇÒ ¶§ »ç¿ëÇÏ´Â ¾î³ëÅ×ÀÌ¼Ç.
+@Nested
+	Å×½ºÆ® Å¬·¡½º ¾È¿¡¼­ ³»ºÎ Å¬·¡½º¸¦ Á¤ÀÇÇØ Å×½ºÆ®¸¦ °èÃşÈ­ ÇÒ ¶§ »ç¿ë.
+	³»ºÎ Å¬·¡½º´Â ºÎ¸ğÅ¬·¡½ºÀÇ ¸â¹ö ÇÊµå¿¡ Á¢±Ù°¡´É.
+	Before/After¿Í °°Àº Å×½ºÆ® »ı¸íÁÖ±â¿¡ °ü°èµÈ ¸Ş¼­µåµéµµ °èÃş¿¡ ¸ÂÃç µ¿ÀÛ.
+
+All°ú EachÀÇ ´Ù¸¥Á¡
+- AllÀº ÇÏ³ªÀÇ Å¬·¡½º ¾È¿¡ ¿©·¯ °³ÀÇ Test¸¦ Àû¿ëÇÒ ¶§ »ç¿ë. Test°¡ Á¶°Ç¿¡ ¿µÇâÀ» ¹ŞÁö ¾ÊÀ¸¸é »ç¿ë.
+- Each´Â ¿©·¯°³ÀÇ Å¬·¡½º ¾È¿¡ ÇÏ³ªÀÇ Test¸¦ Àû¿ëÇÒ ¶§ »ç¿ë. Test°¡ Á¶°Ç¿¡ ¿µÇâÀ» ¹ÌÄ¡¸é »ç¿ë.
+
+@Tag
+	Å×½ºÆ® Å¬·¡½º, ¸Ş¼Òµå¿¡ Å×½ºÆ® ±¸ºĞÀ» ÅÂ±ëÇÏ±â À§ÇØ »ç¿ë
+	ÆÄ¶ó¹ÌÅÍ¸í : value	
+	Å¸ÀÔ : String
+	¼³¸í : ÅÂ±×¸í
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+	Å×½ºÆ® ¼ø¼­¸¦ Á¤ÇØÁÖ´Â ¾î³ëÅ×ÀÌ¼Ç
+	ÆÄ¶ó¹ÌÅÍ¸í : value	
+	Å¸ÀÔ : Class<? extends MethodOrderer>	
+
+	¼³¸í : Á¤·Ä Å¸ÀÔ
+	MethodName : ¸Ş¼Òµå¸í
+	DisplayName : @DisplayName
+	OrderAnnotation : @Order(n) 
+	Random : ·£´ı
+ @TestInstance(TestInstance.Lifecycle.PER_CLASS)  
+	¾î³ëÅ×ÀÌ¼ÇÀ¸·Î ¶óÀÌÇÁ »çÀÌÅ¬À» Å¬·¡½º ´ÜÀ§·Î ¼³Á¤
+
+
+
+6. Assertions
+- »çÀüÀû ÀÇ¹Ì : ÁÖÀå, Çà»ç, ´ÜÁ¤¹®
+- Å×½ºÆ® ÄÉÀÌ½ºÀÇ ¼öÇà °á°ú¸¦ ÆÇº°ÇÏ´Â ¸Ş¼­µå
+- ¸ğµç Junit Jupiter Assertions´Â static ¸Ş¼­µå
+
+assertEquals(expected, actual)
+	±â´ëÇÑ °ª°ú ½ÇÁ¦ °ªÀÌ °°ÀºÁö È®ÀÎ
+assertNotNull(actual)
+	°ªÀÌ nullÀÌ ¾Æ´ÑÁö È®ÀÎ
+assertTrue(boolean)
+	Á¶°ÇÀÌ ÂüÀÎÁö È®ÀÎ
+*¾Æ·¡´Â JUnit5¿¡ Ãß°¡µÈ Assertions
+assertAll(executables...)
+	¸Å°³º¯¼ö·Î ¹Ş´Â ¸ğµç Å×½ºÆ®ÄÚµå¸¦ ÇÑ ¹ø¿¡ ½ÇÇà
+	¿À·ù°¡ ³ªµµ ³¡±îÁö ½ÇÇàÇÑ µÚ ÇÑ ¹ø¿¡ ¸ğ¾Æ¼­ Ãâ·Â
+	5 ÀÌÀü ¹öÀü¿¡¼­´Â ¿À·ù°¡ ³ª¸é Á¾·á µÇ¾úÀ½.
+assertThrows(expectedType, executable)
+	¿¹¿Ü ¹ß»ıÀ» È®ÀÎÇÏ´Â Å×½ºÆ®
+	executableÀÇ ·ÎÁ÷ÀÌ ½ÇÇàÇÏ´Â µµÁß expectedTypeÀÇ ¿¡·¯¸¦ ¹ß»ı½ÃÅ°´ÂÁö È®ÀÎ
+assertTimeout(duration, executable)
+	Æ¯Á¤ ½Ã°£ ¾È¿¡ ½ÇÇàÀÌ ¿Ï·áµÇ´ÂÁö È®ÀÎ
+	Duration : ¿øÇÏ´Â ½Ã°£
+	Executable : Å×½ºÆ®ÇÒ ·ÎÁ÷
+
+
+
+
+
+7. Assumption
+- ÀüÁ¦¹®ÀÌ true¶ó¸é ½ÇÇà, false¶ó¸é Á¾·á
+- assumeTrue : falseÀÏ ¶§ ÀÌÈÄ Å×½ºÆ® ÀüÃ¼°¡ ½ÇÇàµÇÁö ¾ÊÀ½
+- assumingThat : ÆÄ¶ó¹ÌÅÍ·Î Àü´ŞµÈ ÄÚµåºí·°¸¸ ½ÇÇàµÇÁö ¾ÊÀ½
+
+
+
+
+
+
+
+
+8. Å×½ºÆ® ÀÎ½ºÅÏ½º
+class StudyTest {
+    int value = 1;
+
+    @FastTest
+    @DisplayName("FastTest")
+    void create_new_study() {
+        System.out.println(this);
+        System.out.println(value++);
+    }
+
+    @SlowTest
+    @DisplayName("SlowTest")
+    void create_new_study_again() {
+        System.out.println(this);
+        System.out.println(value++);
+    }
+±âº» Àü·«
+- Å×½ºÆ® ¸Ş¼­µå¸¶´Ù Å¬·¡½º ÀÎ½ºÅÏ½º¸¦ »õ·Î ¸¸µê
+- this °ª ´Ù¸§ -> ´Ù¸¥ ÀÎ½ºÅÏ½º
+- value °ªÀº Ç×»ó 1·Î Ãâ·ÂµÊ
+- Å×½ºÆ® °£ÀÇ ÀÇÁ¸¼ºÀ» ¾ø¾Ö±â À§ÇØ¼­
+
+
+
+
+JUnit5¿¡¼­ Å¬·¡½º ³» ÀÎ½ºÅÏ½º ÇÏ³ª¸¸ ¸¸µé¾î¼­ »ç¿ë °¡´ÉÇÏ°Ô²û º¯°æ
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class StudyTest {
+    int value = 1;
+
+    @FastTest
+    @DisplayName("FastTest")
+    void create_new_study() {
+        System.out.println(this);
+        System.out.println(value++);
+    }
+
+    @SlowTest
+    @DisplayName("SlowTest")
+    void create_new_study_again() {
+        System.out.println(this);
+        System.out.println(value++);
+    }
+
+    @BeforAll
+    void beforeAll() {
+        System.out.println("before all");
+    }
+
+    @AfterAll
+    void afterAll() {
+        System.out.println("after all");
+    }
+Å¬·¡½º ´ç ÀÎ½ºÅÏ½º ÇÏ³ª¸¸ »ı¼ºÇÏ±â ¶§¹®¿¡ @BeforeAll, @AfterAll ¸Ş¼­µå¿¡ static Á¦°Å
+°°Àº ÀÎ½ºÅÏ½º ÇØ½¬°ª Ãâ·Â, value °ª 1, 2 Ãâ·Â
+
+
+
+*Å×½ºÆ® ¼ø¼­
+JUnit5 ³»ºÎ ·ÎÁ÷¿¡ µû¶ó Å×½ºÆ® ¼ø¼­ º¯°æµÉ ¼ö ÀÖÀ½ -> ¼ø¼­¿¡ ´ëÇÑ ÀÌÀ¯ ¸íÈ®ÇÏÁö ¾ÊÀ½
+´ÜÀ§ Å×½ºÆ®´Â µ¶¸³ÀûÀ¸·Î ½ÇÇà °¡´ÉÇØ¾ß ÇÔ, ÀÇÁ¸¼ºÀÌ ¾ø¾î¾ß ÇÔ
+
+
+
+@TestInstance(Lifecycle.PER_CLASS)¿Í @TestMethodOrder ÇÔ²² »ç¿ë or @TestMethodOrder ´Üµ¶ »ç¿ë °¡´É
+°æ¿ì¿¡ µû¶ó Æ¯Á¤ ¼ø¼­´ë·Î Å×½ºÆ®¸¦ ½ÇÇàÇØ¾ß ÇÒ ¶§
+MethodOrderer ±¸ÇöÃ¼ ¼³Á¤
+±âº» ±¸ÇöÃ¼
+	Alphanumeric // ¹®ÀÚ¿­ ¼ıÀÚ
+	OrderAnnotation // Annotation ¼ø¼­
+	Random
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class StudyTest {
+    int value = 1;
+
+    @Order(2)
+    @FastTest // »¡¸® ³¡³ª´Â Å×½ºÆ®
+    @DisplayName("FastTest")
+    void create_new_study() {
+        System.out.println(this);
+        System.out.println(value++);
+    }
+
+    @Order(1) //JUnitÀÌ Á¦°øÇÏ´Â °Í »ç¿ë(SpringÀÌ Á¦°øÇÏ´Â °Í X)
+    @SlowTest // ´À¸®°Ô ³¡³ª´Â Å×½ºÆ®
+    @DisplayName("SlowTest")
+    void create_new_study_again() {
+        System.out.println(this);
+        System.out.println(value++);
+    }
+}
+Order(n), n°ª ÀÛÀº ¼ø¼­´ë·Î ½ÇÇà
+
+
+
+
+
+
+
+9. È®Àå ¸ğµ¨ JUnit5 : Extension
+¸ñÀû : Å×½ºÆ® Å¬·¡½º ¶Ç´Â ¸Ş¼­µåÀÇ µ¿ÀÛÀ» È®ÀåÇÏ´Â °Í
+JUnit 5 È®ÀåÀº È®Àå ÁöÁ¡ÀÌ¶ó°í ÇÏ´Â Å×½ºÆ® ½ÇÇàÀÇ Æ¯Á¤ ÀÌº¥Æ®¿Í °ü·ÃµË´Ï´Ù. 
+Æ¯Á¤ ¶óÀÌÇÁ »çÀÌÅ¬ ´Ü°è¿¡ µµ´ŞÇÏ¸é JUnit ¿£ÁøÀÌ µî·ÏµÈ È®ÀåÀ» È£ÃâÇÕ´Ï´Ù.
+´Ù¼¸ °¡Áö ÁÖ¿ä À¯ÇüÀÇ È®ÀåÁ¡À» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+	Å×½ºÆ® ÀÎ½ºÅÏ½º ÈÄÃ³¸®
+	Á¶°ÇºÎ Å×½ºÆ® ½ÇÇà
+	¶óÀÌÇÁ »çÀÌÅ¬ Äİ¹é
+	¸Å°³º¯¼ö ºĞÇØ´É
+	¿¹¿Ü Ã³¸®
+
+1. µî·Ï ¹æ¹ı
+¼±¾ğÀûÀÎ µî·Ï, @ExtendWith(MockitoExtension.class)
+ÇÁ·Î±×·¡¹Ö µî·Ï, @RegisterExtension
+ÀÚµ¿ µî·Ï ÀÚ¹Ù ServiceLoader ÀÌ¿ë
+
+¼±¾ğÀûÀÎ µî·Ï, @ExtendWith
+public class FindSlowTestExtension implements BeforeTestExecutionCallback, AfterTestExecution {
+
+    private static final long THRESHOLD = 1000L; //1ÃÊ
+
+    @Overried
+    public void beforeTestExecution(ExtensionContext context) throws Exception {
+        ExtensionContext.Store store = getSore(context);
+        store.put("START_TIME", System.currentTimeMillis());
+    }
+
+    @Overried
+    public void afterTestExecution(ExtensionContext context) throws Exception {
+        Method requiredTestMethod = context.getRequiredTestMethod();
+        SlowTest annotation = requiredTestMethod.getAnnotation(SlowTest.class);
+        String testMethodName = context.getRequiredTestMethod().getName();
+        ExtensionContext.Store store = getStore(context);
+        long start_time = store.remove("START_TIME", long.class);
+        long duration = System.currentTimeMillis() - start_time;
+        if(duration > THRESHOLD && annotation == null) {
+            System.out.println("Please consider mark method [%s] with @SlowTest.\n", testMethodName);
+
+    }
+
+    private ExtensionContext.Store getStore(ExtensionContext context) {
+        String testClassName = context.getRequiredTestClass().getName();
+        String testMethodName = context.getRequiredTestMethod().getName();
+        return context.getStore(ExtensionContext.Namespace.create(testClassName, testMethodName));
+    }
+@ExtendWith(FindSlowTestExtension.class) //¼±¾ğÀûÀÎ µî·Ï
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class StudyTest {
+    int value = 1;
+
+    @Order(2)
+    @DisplayName("FastTest")
+    void create_new_study() {
+        System.out.println(this);
+        System.out.println(value++);
+    }
+
+    @Order(1)
+    @Test
+    @DisplayName("SlowTest")
+    void create_new_study_again() throws InterruptedException{
+        Thread.sleep(1005L); //1ÃÊ Á¶±İ ³ÑÀ½
+        System.out.println(this);
+        System.out.println(value++);
+    }
+}
+
+
+
+
+
+2. ÇÁ·Î±×·¡¹Ö µî·Ï, @RegisterExtension
+public class FindSlowTestExtension implements BeforeTestExecutionCallback, AfterTestExecution {
+
+    private long THRESHOLD;
+
+    public FindSlowTestExtension(long THRESHOLD) {
+        this.THRESHOLD = THRESHOLD;
+    }
+
+    @Overried
+    public void beforeTestExecution(ExtensionContext context) throws Exception {
+        ExtensionContext.Store store = getSore(context);
+        store.put("START_TIME", System.currentTimeMillis());
+    }
+
+    @Overried
+    public void afterTestExecution(ExtensionContext context) throws Exception {
+        Method requiredTestMethod = context.getRequiredTestMethod();
+        SlowTest annotation = requiredTestMethod.getAnnotation(SlowTest.class);
+        String testMethodName = context.getRequiredTestMethod().getName();
+        ExtensionContext.Store store = getStore(context);
+        long start_time = store.remove("START_TIME", long.class);
+        long duration = System.currentTimeMillis() - start_time;
+        if(duration > THRESHOLD && annotation == null) {
+            System.out.println("Please consider mark method [%s] with @SlowTest.\n", testMethodName);
+
+    }
+
+    private ExtensionContext.Store getStore(ExtensionContext context) {
+        String testClassName = context.getRequiredTestClass().getName();
+        String testMethodName = context.getRequiredTestMethod().getName();
+        return context.getStore(ExtensionContext.Namespace.create(testClassName, testMethodName));
+    }
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class StudyTest {
+    int value = 1;
+
+    @RegisterExtension //ÇÁ·Î±×·¡¹Ö µî·Ï
+    static FindSlowTestExtension findSwloTestExtension = new FindSlowTestExtension(1000L);
+
+    @Order(2)
+    @DisplayName("FastTest")
+    void create_new_study() {
+        System.out.println(this);
+        System.out.println(value++);
+    }
+
+    @Order(1)
+    @Test
+    @DisplayName("SlowTest")
+    void create_new_study_again() throws InterruptedException{
+        Thread.sleep(1005L); //1ÃÊ Á¶±İ ³ÑÀ½
+        System.out.println(this);
+        System.out.println(value++);
+    }
+}
+
+
+
+Ãß°¡ ¿¹½Ã :JUnit5¿Í Mockito¸¦ ¿¬µ¿ÇÏ±â À§ÇØ¼­´Â @ExtendWith(MockitoExtension.class)¸¦ »ç¿ë
+@ExtendWith(MockitoExtension.class)
+public class ServiceTest {
+}
+
+
+
+
+
+
+10. ¸¶ÀÌ±×·¹ÀÌ¼Ç
+junit-vintage-engineÀ» ÀÇÁ¸¼ºÀ¸·Î Ãß°¡ÇÏ¸é, JUnit 5ÀÇ junit-platformÀ¸·Î JUnit 3°ú 4·Î ÀÛ¼ºµÈ Å×½ºÆ®¸¦ ½ÇÇàÇÒ ¼ö ÀÖÀ½
+JUnit Vintage -> JUnit4
+JUnit Jupiter -> JUnit5
+
+@RunWith ´ë½Å¿¡ @ExtendWith »ç¿ëÇØ¾ß ÇÔ
+ÇÏÁö¸¸ @SpringBootTest »ç¿ëÇÏ¸é @ExtendWith »ç¿ë¾ÈÇØµµ µÊ (³»ÀåµÇ¾î ÀÖÀ½)

@@ -12,7 +12,7 @@ public class Ex5_1 {
 		};
 		int sum = 0;
 		// 2중 for문 사용
-		for (int i=0;i<score.length;i++) { //score.length = 4 행의 길이
+		for (int i=0;i<score.length;i++) { //score.length = 4 행의 길이 0~3
 			for (int j=0;j<score[i].length;j++) { //i는 0~3 score[0].length = 3 열의 길이
 				System.out.printf("score[%d][%d]=%d%n", i, j, score[i][j]);
 				
