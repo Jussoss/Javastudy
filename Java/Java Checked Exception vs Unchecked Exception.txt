@@ -1,0 +1,21 @@
+Checked Exception과 Unchecked Exception의 차이점
+
+Checked Exception
+1. 처리여부 : 예외처리가 필수 (try-catch문 사용 or throws를 통해 호출한 메서드로 예외를 던짐)
+2. 확인시점 : 컴파일 단계에서 컴파일이 되지 않음
+3. Exception 중에서 RuntimeException에 속해 있지 않은 클래스들
+
+
+Unchecked Exception
+1. 처리여부 : 예외처리가 선택적
+2. 확인시점 : 런타임 중 예외가 확인 됨
+3. Exception 중에서 RuntimeException에 속해 있는 클래스들
+
+예외 복구가 가능하다면 Checked Exception을 try catch로 잡고 
+해당 복구를 하는 것이 좋지만 그러한 경우는 흔하지 않으며 
+
+Checked Exception이 발생하면 더 구체적인 Unchecked Exception을 발생시키고 
+예외에 대한 메시지를 명확하게 전달하는 것이 효과적임
+
+
+

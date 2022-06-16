@@ -14,13 +14,13 @@ class StackQueueEx {
 		q.offer("2");
 
 		System.out.println("= Stack =");
-		while(!st.empty()) {
-			System.out.println(st.pop());
+		while(!st.empty()) { // 스택이 비었는지 확인
+			System.out.println(st.pop()); // 요소 하나 꺼내기
 		}
 
 		System.out.println("= Queue =");
-		while(!q.isEmpty()) {
-			System.out.println(q.poll());
+		while(!q.isEmpty()) { // 큐가 비었는지 확인
+			System.out.println(q.poll()); // 요소 하나 꺼내기
 		}
 	}
 }
